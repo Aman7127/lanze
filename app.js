@@ -60,7 +60,7 @@ app.get("/compose", function (req, res) {
 
 app.post("/compose", function (req, res) {
   const post = new Post({
-    title: req.body.title,
+    Title: req.body.title,
     content: req.body.post,
   });
   post.save(function(err){
@@ -75,7 +75,7 @@ app.get("/posts/:postid", function (req, res) {
   var requestedpostid = req.params.postid;
 
   Post.findOne({_id: requestedpostid}, function(err, post){
-         res.render("post", { title: post.title, content: post.content});
+         res.render("post", { title: post.Title, content: post.content});
     
   });
 
